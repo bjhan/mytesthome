@@ -19,6 +19,29 @@ html,body{
   overflow: hidden;
   background-color: #ddd;
 }
+.img-figure{
+  position: absolute;
+  width: 320px;
+  height: 360px;
+  margin: 0px;
+  padding: 40px;
+  box-sizing: border-box;
+  background-color: #fff;
+  overflow: hidden;
+}
+.img-figure>img{
+  width: 220px;
+  height: 220px;
+}
+.img-title{
+  margin: 20px 0px 0px 0px;
+  text-align: center;
+  font-size: 16px;
+  color: #000;
+}
+.img-sec >figure>img{
+  position: relative;
+}
 .controller-nav{
   position: absolute;
   bottom: 30px;
