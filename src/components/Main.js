@@ -45,6 +45,20 @@ class AppComponent extends React.Component {
   rearange = function (centerIndex) {
 
 }
+  getInitialStage() {
+    return {
+      imgsArrangeArr: [
+       /* {
+          pos: {
+            left: 0,
+            right: 0
+          }
+        }
+        */
+      ]
+    };
+
+  }
 //组件加载以后为每一张图片计算范围
   componentDidMount() {
     //拿到舞台大小
@@ -84,8 +98,16 @@ class AppComponent extends React.Component {
     var controllerUnits = [],
       imgFigure = [];
     imageDatas.forEach(function (value,index) {
+      if(!this.state.imgsArrangeArr[index]){
+        this.state.imgsArrangeArr[index] = {
+          pos: {
+            left: 0,
+            top: 0
+          }
+        }
+      }
       imgFigure.push(<ImgFigures data = {value} key = {value.filename} ref ={'imageFigure'+index}/>);
-    });
+    }.bind(this));
     return (
       <section className="stage" ref="stage">
         <section className="img-sec">
