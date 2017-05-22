@@ -42,10 +42,46 @@ class AppComponent extends React.Component {
       topY: [0,0]
     }
   };
+  //获取区间内随机值
+  function getRangeRandom(low, high) {
+  return Math.ceil(Math.random() * (high - low) + low);
+}
   rearange = function (centerIndex) {
+    var imgsArrangeArr = this.state.imgsArrangeArr,
+      Constant = this.Constant,
+      centerPos = Constant.centerPos,
+      hPosRange = Constant.hPosRange,
+      vPosRange = Constant.vPosRange,
+      hPosRangeLeftSecX = hPosRange.leftSecX,
+      hPosRangeRightSecX = hPosRange.rightSecx,
+      hPosRangeY = hPosRange.y,
+      vPosRangeTopY = vPosRange.topY,
+      vPosRangeX = vPosRange.x,
+
+      imgsArrangeTopArr = [],
+      topImgNum = Math.ceil(Math.random() * 2),
+      topImgSpliceIndex = 0,
+
+      imgsArrangeCenterArr = imgsArrangeArr.splice(centerIndex,1);
+
+    //居中
+    imgsArrangeCenterArr[0].pos = centerPos;
+
+    //取出布局上册图片的状态信息
+    topImgSpliceIndex = Math.ceil(Math.random * (imgsArrangeArr.length - topImgNum));
+    imgsArrangeTopArr = imgsArrangeArr.splice(topImgSpliceIndex,topImgNum);
+
+    //布局上册图片
+    imgsArrangeTopArr.forEach(function (value,index) {
+      imgsArrangeTopArr[index].pos = {
+        top: ,
+        left:
+      }
+    });
+
 
 }
-  getInitialStage() {
+  getInitialState() {
     return {
       imgsArrangeArr: [
        /* {
